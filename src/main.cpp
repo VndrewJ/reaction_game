@@ -1,18 +1,19 @@
 #include <Arduino.h>
+#include "../lib/button.h"
 
-// put function declarations here:
-int myFunction(int, int);
+/* Button Initialisation */
+Button button_1(5, 16);
+
+void IRAM_ATTR handle_button_1(){
+  button_1.set_pressed();
+}
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  Serial.begin(115200);
+  Serial.println("testing");
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  bool toggle = button_1.is_pressed();
+  button_1.set_light(!toggle);
 }
