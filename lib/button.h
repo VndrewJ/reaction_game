@@ -7,13 +7,11 @@ class Button{
 private:
     int _button_pin;
     int _led_pin;
-    volatile bool _pressed_flag;
     volatile bool _lit_flag;
 public:
-    Button(int button_pin, int led_pin);
+    bool test_pressed_flag;
 
-    bool is_pressed();
-    void set_pressed();
+    Button(int button_pin, int led_pin);
     
     bool is_lit();
     void set_light(bool level);
