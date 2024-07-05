@@ -12,8 +12,10 @@ class Player{
         */
 
     public:
-        Player(Button &left_button, Button &right_button);
+        bool is_lit;
 
+        Player(Button &left_button, Button &right_button);
+        void set_light(Button &button, bool level);
 };
 
 #endif

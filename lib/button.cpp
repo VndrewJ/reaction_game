@@ -14,4 +14,5 @@ bool Button::is_lit(){
 
 void Button::set_light(bool level){
     this->_lit_flag = level;
+    digitalWrite(_led_pin, level);
 }
