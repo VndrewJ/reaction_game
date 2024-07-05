@@ -117,31 +117,10 @@ void loop(){
       case NO_LIGHT:
         //start timer
         timerAlarmEnable(light_timer);
-        if(player_pressed != 0){
-          state = ROUND_OVER;
-        }else if(light_timer_flag){
-          //enable another timer
-          state = YES_LIGHT;
+        if(light_timer_flag){
+          light_timer_flag = false;
+          timerAlarmDisable(light_timer);
+          state = STARTING;
         }
-        break;
-
-      case YES_LIGHT:
-        //Start timeout timer
-        //if button pressed
-        //  award that player a point
-        //else
-        // go to ROUND_OVER
-
-      case ROUND_OVER:
-        //cute lil animation on screen or on the buttons idk
-        //break for 5 seconds
-        //if a player has 5 points
-        //  go to GAME_OVER
-        //else
-        //  go to STARTING
-
-      case GAME_OVER:
-        //cute lil animation showing winner
-        //idle, wait for restart
     }
 }
